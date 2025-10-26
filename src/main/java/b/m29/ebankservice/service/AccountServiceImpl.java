@@ -5,7 +5,6 @@ import b.m29.ebankservice.dto.BankAccountResponseDTO;
 import b.m29.ebankservice.entities.BankAccount;
 import b.m29.ebankservice.mappers.AccountMapper;
 import b.m29.ebankservice.repositories.BankAccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;

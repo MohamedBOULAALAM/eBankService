@@ -2,17 +2,11 @@ package b.m29.ebankservice.web;
 
 import b.m29.ebankservice.dto.BankAccountRequestDTO;
 import b.m29.ebankservice.dto.BankAccountResponseDTO;
-import b.m29.ebankservice.entities.BankAccount;
-import b.m29.ebankservice.repositories.BankAccountRepository;
 import b.m29.ebankservice.service.AccountService;
 import org.springframework.web.bind.annotation.*;
-import java.util.Date;
-import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
 
 /*
 @RestController
@@ -55,7 +49,6 @@ public class BankAccountRestController {
 }
 
 */
-
 
 @RestController
 @RequestMapping("/bankAccounts")
