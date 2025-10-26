@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
-
+@RequestMapping("/api")
 public class BankAccountRestController {
 
     private BankAccountRepository bankAccountRepository;
@@ -26,11 +27,12 @@ public class BankAccountRestController {
                         ()-> new RuntimeException(
                                 String.format("Bank account with id %s not found", id)));
     }
-    @PostMapping("/bankAccount")
+    @PostMapping("/bankAccounts")
     public BankAccount save(@RequestBody BankAccount bankAccount) {
+        if (bankAccount.getId()== null) bankAccount.setId(UUID.randomUUID().toString());
         return bankAccountRepository.save(bankAccount);
     }
-    @PutMapping ("/bankAccount/{id}")
+    @PutMapping ("/bankAccounts/{id}")
     public BankAccount update(@PathVariable String id ,@RequestBody BankAccount bankAccount) {
         BankAccount account = bankAccountRepository.findById(id).orElseThrow();
         if (bankAccount.getBalance()!=null)account.setBalance(bankAccount.getBalance());

@@ -31,8 +31,6 @@ public class EBankServiceApplication {
 					.createdAT(new Date())
 					.build();
 			bankAccountRepository.save(bankAccount);
-
-
 		};
 	}
 
