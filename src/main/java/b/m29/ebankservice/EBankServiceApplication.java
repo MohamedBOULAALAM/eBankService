@@ -23,15 +23,17 @@ public class EBankServiceApplication {
 	@Bean
 	CommandLineRunner start(BankAccountRepository bankAccountRepository){
 		return args -> {
-			BankAccount bankAccount = BankAccount.builder()
-					.id(UUID.randomUUID().toString())
-					.type(Math.random()>0.5? AccountType.CURRENT_ACCOUNT : AccountType.SAVINGS_ACCOUNT)
-					.balance( 588 + Math.random() * 29555)
-					.currency("MAD")
-					.createdAT(new Date())
-					.build();
-			bankAccountRepository.save(bankAccount);
+			BankAccount bankAccount = null;
+			for (int i = 0; i < 10; i++) {
+				bankAccount = BankAccount.builder()
+						.id(UUID.randomUUID().toString())
+						.type(Math.random() > 0.29 ? AccountType.CURRENT_ACCOUNT : AccountType.SAVINGS_ACCOUNT)
+						.balance(588 + Math.random() * 29555)
+						.createdAT(new Date())
+						.currency("MAD")
+						.build();
+				bankAccountRepository.save(bankAccount);
+			}
 		};
 	}
-
 }

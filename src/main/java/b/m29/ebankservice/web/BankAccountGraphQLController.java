@@ -22,7 +22,7 @@ public class BankAccountGraphQLController {
 
 
     @QueryMapping
-    public List<BankAccount> accountList(){ return bankAccountRepository.findAll();}
+    public List<BankAccount> accountsList(){ return bankAccountRepository.findAll();}
     @QueryMapping
     public BankAccount bankAccountById(@Argument String id){
         return bankAccountRepository.findById( id)
