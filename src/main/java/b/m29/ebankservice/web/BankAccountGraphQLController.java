@@ -3,7 +3,9 @@ package b.m29.ebankservice.web;
 import b.m29.ebankservice.dto.BankAccountRequestDTO;
 import b.m29.ebankservice.dto.BankAccountResponseDTO;
 import b.m29.ebankservice.entities.BankAccount;
+import b.m29.ebankservice.entities.Customer;
 import b.m29.ebankservice.repositories.BankAccountRepository;
+import b.m29.ebankservice.repositories.CustomerRepository;
 import b.m29.ebankservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -19,6 +21,8 @@ public class BankAccountGraphQLController {
     private BankAccountRepository bankAccountRepository;
     @Autowired
     private AccountService accountService;
+    @Autowired
+    private CustomerRepository customerRepository;
 
 
     @QueryMapping
@@ -28,6 +32,8 @@ public class BankAccountGraphQLController {
         return bankAccountRepository.findById( id)
                 .orElseThrow(()-> new RuntimeException(String.format("Account %s not found", id)));
     }
+    @QueryMapping
+    public List<Customer> customers(){return customerRepository.findAll();}
 
 
 
